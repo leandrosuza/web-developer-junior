@@ -1,0 +1,99 @@
+body.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+.login-card {
+    max-width: 410px;
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(76, 68, 182, 0.25), 0 1.5px 8px 0 rgba(76, 68, 182, 0.10);
+    overflow: hidden;
+    background: #fff;
+}
+.login-card-top {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    height: 170px;
+}
+.login-card-top .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.18);
+}
+.login-card-top .header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2.2rem 1rem 1.2rem 1rem;
+}
+.login-card-top h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.login-card-top p {
+    color: #e0e7ff;
+    font-size: 1rem;
+}
+.login-avatar {
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    transform: translateX(-50%);
+    z-index: 3;
+    background: #fff;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px 0 rgba(76, 68, 182, 0.18);
+}
+.login-avatar i {
+    color: #667eea;
+    font-size: 2.2rem;
+}
+.login-card-body {
+    padding: 2.8rem 2rem 2rem 2rem;
+}
+.login-card .form-label {
+    font-weight: 500;
+}
+.login-card .input-group-text {
+    background: #f3f4f6;
+    border: none;
+}
+.login-card .form-control:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 0.2rem rgba(118, 75, 162, 0.15);
+}
+.login-card .btn-primary {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px 0 rgba(76, 68, 182, 0.10);
+}
+.login-card .btn-primary:hover {
+    background: linear-gradient(90deg, #5a67d8 0%, #6b21a8 100%);
+}
+.login-card .form-check-input:checked {
+    background-color: #764ba2;
+    border-color: #764ba2;
+}
+.login-card .small a {
+    color: #764ba2;
+    text-decoration: underline;
+}
+.login-card .small a:hover {
+    color: #667eea;
+}
+.shake {
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+} 

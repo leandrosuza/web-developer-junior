@@ -1,0 +1,133 @@
+/* =======================
+   ////__unavailable__////
+   ======================= */
+
+/* ===== EFEITO INDISPONÍVEL GLOBAL (fallback) ===== */
+.unavailable-balloon {
+    position: absolute;
+    z-index: 9999;
+    background: #fff0f0;
+    color: #b91c1c;
+    border: 1.5px solid #f87171;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px rgba(239,68,68,0.10);
+    padding: 0.5rem 1rem 0.5rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+    min-width: 170px;
+    animation: fadeInUnavailable 0.18s;
+}
+.unavailable-icon {
+    color: #dc2626;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+@keyframes fadeInUnavailable {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== BLOG PÚBLICO ===== */
+.blog-unavailable-balloon {
+    position: absolute;
+    z-index: 9999;
+    background: #f0f9ff;
+    color: #0ea5e9;
+    border: 1.5px solid #7c3aed;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px rgba(14,165,233,0.10);
+    padding: 0.5rem 1rem 0.5rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+    min-width: 170px;
+    animation: blog-fadeInUnavailable 0.18s;
+}
+.blog-unavailable-icon {
+    color: #0ea5e9;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+@keyframes blog-fadeInUnavailable {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PAINEL ADMIN (blogManager) ===== */
+.blogManager-unavailable-balloon {
+    position: absolute;
+    z-index: 9999;
+    background: #fff0f0;
+    color: #b91c1c;
+    border: 1.5px solid #f87171;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px rgba(239,68,68,0.10);
+    padding: 0.5rem 1rem 0.5rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+    min-width: 170px;
+    animation: blogManager-fadeInUnavailable 0.18s;
+}
+.blogManager-unavailable-icon {
+    color: #dc2626;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+@keyframes blogManager-fadeInUnavailable {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== LOGIN ===== */
+.login-unavailable-balloon {
+    position: absolute;
+    z-index: 9999;
+    background: #ede9fe;
+    color: #7c3aed;
+    border: 1.5px solid #a78bfa;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px rgba(124,58,237,0.10);
+    padding: 0.5rem 1rem 0.5rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+    min-width: 170px;
+    animation: login-fadeInUnavailable 0.18s;
+}
+.login-unavailable-icon {
+    color: #7c3aed;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+@keyframes login-fadeInUnavailable {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== __blogManager - Navbar Fixa ===== */
+.blogManager-navbar-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1051;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+} 
