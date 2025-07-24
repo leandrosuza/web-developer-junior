@@ -1,6 +1,9 @@
+/* Fundo da página de login */
 body.gradient-bg {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
 }
+
+/* Cartão de Login */
 .login-card {
     max-width: 410px;
     width: 100%;
@@ -9,33 +12,37 @@ body.gradient-bg {
     overflow: hidden;
     background: #fff;
 }
-.login-card-top {
+
+/* Topo do Cartão */
+.login-card-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
     height: 170px;
 }
-.login-card-top .overlay {
+.login-card-header .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.18);
 }
-.login-card-top .header-content {
+.login-card-header .header-content {
     position: relative;
     z-index: 2;
     text-align: center;
     padding: 2.2rem 1rem 1.2rem 1rem;
 }
-.login-card-top h1 {
+.login-card-header h1 {
     color: #fff;
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
-.login-card-top p {
+.login-card-header p {
     color: #e0e7ff;
     font-size: 1rem;
 }
-.login-avatar {
+
+/* Avatar do Login */
+.login-user-avatar {
     position: absolute;
     left: 50%;
     bottom: -28px;
@@ -50,13 +57,17 @@ body.gradient-bg {
     justify-content: center;
     box-shadow: 0 4px 16px 0 rgba(76, 68, 182, 0.18);
 }
-.login-avatar i {
+.login-user-avatar i {
     color: #667eea;
     font-size: 2.2rem;
 }
+
+/* Corpo do Cartão */
 .login-card-body {
     padding: 2.8rem 2rem 2rem 2rem;
 }
+
+/* Formulários e Inputs */
 .login-card .form-label {
     font-weight: 500;
 }
@@ -68,6 +79,12 @@ body.gradient-bg {
     border-color: #764ba2;
     box-shadow: 0 0 0 0.2rem rgba(118, 75, 162, 0.15);
 }
+.login-card .form-check-input:checked {
+    background-color: #764ba2;
+    border-color: #764ba2;
+}
+
+/* Botões */
 .login-card .btn-primary {
     background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
     border: none;
@@ -78,10 +95,6 @@ body.gradient-bg {
 .login-card .btn-primary:hover {
     background: linear-gradient(90deg, #5a67d8 0%, #6b21a8 100%);
 }
-.login-card .form-check-input:checked {
-    background-color: #764ba2;
-    border-color: #764ba2;
-}
 .login-card .small a {
     color: #764ba2;
     text-decoration: underline;
@@ -89,6 +102,8 @@ body.gradient-bg {
 .login-card .small a:hover {
     color: #667eea;
 }
+
+/* Animação de erro */
 .shake {
     animation: shake 0.5s;
 }

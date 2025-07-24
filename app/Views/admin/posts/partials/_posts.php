@@ -20,8 +20,8 @@
 <!-- Search Bar -->
 <div class="card shadow posts-table-card mb-4">
     <div class="card-body">
-        <div class="row g-3">
-            <div class="col-12 col-md-6">
+        <div class="row g-3 justify-content-center align-items-center">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
                 <div class="input-group">
                     <span class="input-group-text bg-light border-end-0">
                         <i class="fas fa-search text-muted"></i>
@@ -29,79 +29,75 @@
                     <input type="text" class="form-control border-start-0" placeholder="Buscar posts..." id="searchPosts">
                 </div>
             </div>
+            <div class="col-12 col-md-3 d-flex justify-content-center">
+                <div class="input-group">
+                    <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-muted"></i></span>
+                    <input type="date" class="form-control" id="filterDateStart" placeholder="Data inicial">
+                </div>
+            </div>
+            <div class="col-12 col-md-3 d-flex justify-content-center">
+                <div class="input-group">
+                    <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-muted"></i></span>
+                    <input type="date" class="form-control" id="filterDateEnd" placeholder="Data final">
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Posts Table -->
-<div class="card shadow posts-table-card mb-4">
-    <div class="card-body p-0">
-        <div class="table-responsive">
-            <table class="table table-hover align-middle mb-0 posts-table">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Linha 1 -->
-                    <tr class="post-item">
-                        <td>
-                            <img src="https://via.placeholder.com/60x40/667eea/ffffff?text=Foto" alt="Foto do Post" class="rounded" style="width: 60px; height: 40px; object-fit: cover;">
-                        </td>
-                        <td>
-                            Como criar um blog moderno
-                            <span class="badge bg-success ms-2">Novo</span>
-                        </td>
-                        <td><div class="text-truncate" style="max-width: 220px;">Guia completo para criar um blog com as melhores práticas de desenvolvimento web...</div></td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <button class="btn btn-outline-primary" onclick="editPost(1)" data-bs-toggle="tooltip" title="Editar"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-outline-success" onclick="viewPost(1)" data-bs-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-outline-danger" onclick="deletePost(1)" data-bs-toggle="tooltip" title="Excluir"><i class="fas fa-trash-can"></i></button>
+<!-- Carrossel de Posts -->
+<?php
+// Garante que $posts está definido e é array/Collection
+if (!isset($posts) || !is_array($posts) && !($posts instanceof \Countable)) {
+    $posts = [];
+}
+$postsArray = is_array($posts) ? $posts : (method_exists($posts, 'toArray') ? $posts->toArray() : []);
+// Ordena por data de criação (mais recente primeiro)
+if (!empty($postsArray)) {
+    usort($postsArray, function($a, $b) {
+        $dateA = is_array($a) ? $a['created_at'] : $a->created_at;
+        $dateB = is_array($b) ? $b['created_at'] : $b->created_at;
+        return strtotime($dateB) - strtotime($dateA);
+    });
+}
+?>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <!-- Título removido conforme solicitado -->
+            <div class="col-md-12">
+                <div class="featured-carousel owl-carousel">
+                    <?php foreach ($postsArray as $post): ?>
+                        <?php
+                            $image = is_array($post) ? $post['image'] : $post->image;
+                            $title = is_array($post) ? $post['title'] : $post->title;
+                            $description = is_array($post) ? $post['description'] : $post->description;
+                            $id = is_array($post) ? $post['id'] : $post->id;
+                        ?>
+                        <div class="item">
+                            <div class="blog-entry" style="border-radius: 1.3rem; overflow: hidden; box-shadow: 0 8px 32px rgba(102,102,234,0.18); background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%); height: 550px; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;">
+                                <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('<?= !empty($image) ? '/' . esc($image) : 'https://via.placeholder.com/420x180/667eea/ffffff?text=Foto' ?>'); height: 200px; background-size: cover; background-position: center; border-top-left-radius: 1.3rem; border-top-right-radius: 1.3rem;"></a>
+                                <div class="text border border-top-0 p-4 d-flex flex-column justify-content-between align-items-center" style="flex: 1 1 auto; min-height: 0;">
+                                    <h3 class="heading text-center" style="color: #3730a3; font-size: 1.18rem; font-weight: bold; text-shadow: 0 2px 8px rgba(102,102,234,0.08); letter-spacing: 0.2px; margin-bottom: 0.5rem;"> <?= esc($title) ?> </h3>
+                                    <p class="text-center" style="color: #6366f1; font-size: 1.01rem; font-weight: 500; line-height: 1.4; min-height: 36px;"> <?= esc($description) ?> </p>
+                                    <div class="mb-2 text-center small text-muted">
+                                        <span>Publicado: <?= isset($post->created_at) ? date('d/m/Y H:i', strtotime($post->created_at)) : (isset($post['created_at']) ? date('d/m/Y H:i', strtotime($post['created_at'])) : '-') ?></span><br>
+                                        <span>Atualizado: <?= isset($post->updated_at) ? date('d/m/Y H:i', strtotime($post->updated_at)) : (isset($post['updated_at']) ? date('d/m/Y H:i', strtotime($post['updated_at'])) : '-') ?></span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center gap-2 mt-auto" style="width: 100%;">
+                                        <button class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center" onclick="editPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Editar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-outline-success btn-sm d-flex align-items-center justify-content-center" onclick="viewPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Visualizar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center" onclick="deletePost(<?= $id ?>)" data-bs-toggle="tooltip" title="Excluir" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-trash-can"></i></button>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                    <!-- Linha 2 -->
-                    <tr class="post-item">
-                        <td>
-                            <img src="https://via.placeholder.com/60x40/764ba2/ffffff?text=Foto" alt="Foto do Post" class="rounded" style="width: 60px; height: 40px; object-fit: cover;">
-                        </td>
-                        <td>Estratégias de SEO para 2023</td>
-                        <td><div class="text-truncate" style="max-width: 220px;">As melhores técnicas de SEO para melhorar seu ranking nos motores de busca...</div></td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <button class="btn btn-outline-primary" onclick="editPost(2)" data-bs-toggle="tooltip" title="Editar"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-outline-success" onclick="viewPost(2)" data-bs-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-outline-danger" onclick="deletePost(2)" data-bs-toggle="tooltip" title="Excluir"><i class="fas fa-trash-can"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- Linha 3 -->
-                    <tr class="post-item">
-                        <td>
-                            <img src="https://via.placeholder.com/60x40/67eaff/ffffff?text=Foto" alt="Foto do Post" class="rounded" style="width: 60px; height: 40px; object-fit: cover;">
-                        </td>
-                        <td>Tendências de UI/UX para apps</td>
-                        <td><div class="text-truncate" style="max-width: 220px;">Conheça as principais tendências de design para aplicativos móveis...</div></td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <button class="btn btn-outline-primary" onclick="editPost(3)" data-bs-toggle="tooltip" title="Editar"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-outline-success" onclick="viewPost(3)" data-bs-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-outline-danger" onclick="deletePost(3)" data-bs-toggle="tooltip" title="Excluir"><i class="fas fa-trash-can"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
-        <!-- Footer branco arredondado -->
-        <div class="posts-table-footer"></div>
     </div>
-</div>
+</section>
 
 <!-- Post Modal -->
 <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -160,4 +156,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+
+<!-- Botão flutuante para novo post -->
+<button id="addPostFab" class="fab-add-post"><i class="fas fa-plus"></i></button> 

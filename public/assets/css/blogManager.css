@@ -1,17 +1,43 @@
-/* =======================
-   ////__sidebar__////
-   ======================= */
-/* Blog Manager Custom CSS */
+/* Owl Carousel */
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+  width: 48px;
+  height: 48px;
+  background: transparent !important;
+  border-radius: 50%;
+  box-shadow: none;
+  color: #fff !important;
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0.97;
+  transition: color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+  color: #fbbf24 !important;
+  opacity: 1;
+  box-shadow: none;
+  transform: translateY(-50%) scale(1.18);
+}
 
-/* Sidebar Styles */
+/* Sidebar */
 .sidebar {
     min-width: 280px;
     max-width: 280px;
     background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     box-shadow: 4px 0 20px rgba(0,0,0,0.08);
     border-right: 1px solid #e2e8f0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1052;
 }
-
 .sidebar .sidebar-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -20,8 +46,6 @@
     position: relative;
     overflow: hidden;
 }
-
-/* Remover animação shimmer do header do nome do blog */
 .sidebar .sidebar-header::before {
     content: '';
     position: absolute;
@@ -31,7 +55,6 @@
     bottom: 0;
     background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
 }
-
 .sidebar .sidebar-header h1 {
     position: relative;
     z-index: 1;
@@ -39,7 +62,6 @@
     letter-spacing: 0.5px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .sidebar-user {
     background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
     border-radius: 1rem;
@@ -51,12 +73,10 @@
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
     transition: all 0.3s ease;
 }
-
 .sidebar-user:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
 }
-
 .sidebar-user .fa-user {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -67,20 +87,16 @@
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
 }
-
 .sidebar-user:hover .fa-user {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
-
 .sidebar .nav {
     padding: 0 1rem;
 }
-
 .sidebar .nav-item {
     margin-bottom: 0.5rem;
 }
-
 .sidebar .nav-link {
     color: #64748b;
     padding: 1rem 1.5rem;
@@ -91,7 +107,6 @@
     overflow: hidden;
     border: 1px solid transparent;
 }
-
 .sidebar .nav-link::before {
     content: '';
     position: absolute;
@@ -102,11 +117,9 @@
     background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
     transition: left 0.5s ease;
 }
-
 .sidebar .nav-link:hover::before {
     left: 100%;
 }
-
 .sidebar .nav-link:hover {
     background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
     color: #4338ca;
@@ -114,7 +127,6 @@
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
     border-color: rgba(99, 102, 241, 0.2);
 }
-
 .sidebar .nav-link.active {
     background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
     color: #ffffff;
@@ -122,26 +134,21 @@
     box-shadow: 0 4px 15px rgba(67, 56, 202, 0.3);
     transform: translateX(8px);
 }
-
 .sidebar .nav-link.active::before {
     display: none;
 }
-
 .sidebar .nav-link i {
     width: 20px;
     text-align: center;
     margin-right: 0.75rem;
     transition: all 0.3s ease;
 }
-
 .sidebar .nav-link:hover i {
     transform: scale(1.2);
 }
-
 .sidebar .nav-link.active i {
     transform: scale(1.1);
 }
-
 .sidebar .logout {
     color: #dc2626;
     background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
@@ -150,7 +157,6 @@
     border-radius: 0.75rem;
     transition: all 0.3s ease;
 }
-
 .sidebar .logout:hover {
     background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
     color: #b91c1c;
@@ -158,19 +164,14 @@
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
     border-color: rgba(220, 38, 38, 0.2);
 }
-
 .sidebar .logout i {
     transition: all 0.3s ease;
 }
-
 .sidebar .logout:hover i {
     transform: scale(1.1);
 }
 
-/* =======================
-   ////__navbar__////
-   ======================= */
-/* Top Navbar Styles */
+/* Navbar */
 .navbar {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -181,7 +182,6 @@
     z-index: 1030;
     padding: 0.75rem 1.5rem;
 }
-
 .navbar-brand {
     font-weight: 700;
     color: #ffffff !important;
@@ -189,11 +189,7 @@
     letter-spacing: 0.5px;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
-
-.navbar-actions {
-    gap: 0.5rem;
-}
-
+.navbar-actions { gap: 0.5rem; }
 .navbar .btn {
     border: none;
     background: transparent;
@@ -209,7 +205,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .navbar .btn::before {
     content: '';
     position: absolute;
@@ -220,26 +215,15 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     transition: left 0.5s ease;
 }
-
-.navbar .btn:hover::before {
-    left: 100%;
-}
-
+.navbar .btn:hover::before { left: 100%; }
 .navbar .btn:hover {
     background: rgba(255,255,255,0.1);
     color: #ffffff;
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
-
-.navbar .btn i {
-    font-size: 1.25rem;
-    transition: all 0.3s ease;
-}
-
-.navbar .btn:hover i {
-    transform: scale(1.1);
-}
+.navbar .btn i { font-size: 1.25rem; transition: all 0.3s ease; }
+.navbar .btn:hover i { transform: scale(1.1); }
 
 /* Notification Badge */
 .navbar .btn .position-absolute {
@@ -248,7 +232,6 @@
     box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
     animation: pulse 2s infinite;
 }
-
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -269,17 +252,14 @@
     cursor: pointer;
     flex-shrink: 0;
 }
-
 .navbar .user-avatar:hover {
     transform: scale(1.05);
     background: rgba(255,255,255,0.3);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-
 .navbar .user-avatar i {
     transition: all 0.3s ease;
 }
-
 .navbar .user-avatar:hover i {
     transform: scale(1.1);
 }
@@ -298,17 +278,14 @@
     align-items: center;
     justify-content: center;
 }
-
 #mobile-menu-button:hover {
     background: rgba(255,255,255,0.2);
     transform: scale(1.02);
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
-
 #mobile-menu-button i {
     transition: all 0.3s ease;
 }
-
 #mobile-menu-button:hover i {
     transform: rotate(90deg);
 }
@@ -318,35 +295,23 @@
     margin: 0 0.5rem;
 }
 
-/* =======================
-   ////__dashboard__////
-   ======================= */
-/* Estilos específicos do dashboard (cards, gráficos, etc) */
-/* Card Styles */
+/* Dashboard */
 .card {
     border-radius: 1rem;
     border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
 }
-
 .card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
-
 .card .btn-group .btn {
     border-radius: 50%;
     padding: 0.4rem 0.6rem;
     transition: all 0.2s ease;
 }
-
-.card .btn-group .btn:hover {
-    transform: scale(1.1);
-}
-
-.card .btn-group .btn i {
-    pointer-events: none;
-}
+.card .btn-group .btn:hover { transform: scale(1.1); }
+.card .btn-group .btn i { pointer-events: none; }
 
 /* Mobile Responsive */
 @media (max-width: 991.98px) {
@@ -416,17 +381,12 @@ body {
     min-height: 100vh;
 } 
 
-/* =======================
-   ////__posts__////
-   ======================= */
-/* Post Cards Styles */
+/* Posts */
 .post-card {
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
     overflow: hidden;
 }
-
-/* Botões de ação da tabela de posts - VISUAL GRUPO COLADO */
 .posts-table .btn-group {
     display: flex;
     align-items: center;
@@ -488,48 +448,31 @@ body {
     transform: scale(1.08);
     z-index: 2;
 }
-
-/* Ajuste de alinhamento vertical dos botões na célula */
 .posts-table td .btn-group {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 0.4rem;
 }
-
 .post-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     border-color: #cbd5e1;
 }
-
-.post-card .card-img-top {
-    transition: all 0.3s ease;
-}
-
-.post-card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
+.post-card .card-img-top { transition: all 0.3s ease; }
+.post-card:hover .card-img-top { transform: scale(1.05); }
 .post-card .badge {
     font-size: 0.75rem;
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
 }
-
-.post-card .dropdown-toggle::after {
-    display: none;
-}
-
+.post-card .dropdown-toggle::after { display: none; }
 .post-card .btn-group .btn {
     border-radius: 0.5rem;
     padding: 0.5rem 0.75rem;
     transition: all 0.2s ease;
 }
-
-.post-card .btn-group .btn:hover {
-    transform: scale(1.1);
-}
+.post-card .btn-group .btn:hover { transform: scale(1.1); }
 
 /* Modal Styles */
 .modal-content {
@@ -537,26 +480,15 @@ body {
     border-radius: 1rem;
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
-
 .modal-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 1rem 1rem 0 0;
     border-bottom: none;
 }
-
-.modal-header .btn-close {
-    filter: invert(1);
-}
-
-.modal-title {
-    font-weight: 600;
-}
-
-.modal-body {
-    padding: 2rem;
-}
-
+.modal-header .btn-close { filter: invert(1); }
+.modal-title { font-weight: 600; }
+.modal-body { padding: 2rem; }
 .modal-footer {
     border-top: 1px solid #e2e8f0;
     padding: 1.5rem 2rem;
@@ -568,25 +500,21 @@ body {
     color: #374151;
     margin-bottom: 0.5rem;
 }
-
 .form-control, .form-select {
     border: 1px solid #d1d5db;
     border-radius: 0.75rem;
     padding: 0.75rem 1rem;
     transition: all 0.3s ease;
 }
-
 .form-control:focus, .form-select:focus {
     border-color: #667eea;
     box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
 }
-
 .input-group-text {
     border-radius: 0.75rem 0 0 0.75rem;
     border: 1px solid #d1d5db;
     background: #f9fafb;
 }
-
 .input-group .form-control {
     border-radius: 0 0.75rem 0.75rem 0;
 }
@@ -601,55 +529,16 @@ body {
 .card .rounded-circle {
     transition: all 0.3s ease;
 }
-
 .card:hover .rounded-circle {
     transform: scale(1.1);
 }
 
-/* Responsive adjustments for posts */
-@media (max-width: 768px) {
-    .post-card .btn-group {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-    
-    .post-card .btn-group .btn {
-        width: 100%;
-    }
-    
-    .modal-dialog {
-        margin: 1rem;
-    }
-    
-    .modal-body {
-        padding: 1.5rem;
-    }
-    
-    .modal-footer {
-        padding: 1rem 1.5rem;
-    }
-}
-
-/* =======================
-   ////__animations__////
-   ======================= */
-/* Animation for post cards */
-.post-item {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
+/* Animações */
+.post-item { animation: fadeInUp 0.6s ease forwards; }
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
-/* Stagger animation for multiple cards */
 .post-item:nth-child(1) { animation-delay: 0.1s; }
 .post-item:nth-child(2) { animation-delay: 0.2s; }
 .post-item:nth-child(3) { animation-delay: 0.3s; }
@@ -830,13 +719,12 @@ body {
 } 
 
 /* Card de resumo acima da grid de posts */
-.posts-summary-card {
-    background: rgba(255,255,255,0.92);
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(102, 102, 234, 0.08);
-    border-left: 5px solid #6366f1;
-    min-height: 70px;
-    align-items: center;
+.posts-summary-card, .carousel .posts-summary-card {
+    background: rgba(255,255,255,0.92) !important;
+    border-radius: 1.2rem !important;
+    box-shadow: 0 2px 12px rgba(102, 102, 234, 0.08) !important;
+    border-left: 5px solid #6366f1 !important;
+    border: none;
 }
 .posts-summary-card .vr {
     background: #e0e7ff;
@@ -940,41 +828,269 @@ body {
     to { opacity: 1; transform: translateY(0); }
 } 
 
-/* Sidebar fixa na lateral esquerda */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 1052;
-}
-
-/* Compensar largura da sidebar no conteúdo principal */
+/* Utilitários e ajustes finais (sidebar, navbar fixa, etc) */
 .flex-grow-1 {
-    margin-left: 280px; /* mesma largura da sidebar */
+    margin-left: 280px;
     padding-top: 72px;
 }
 @media (max-width: 991.98px) {
-    .sidebar {
-        left: -280px;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .flex-grow-1 {
-        margin-left: 0;
-        padding-top: 60px;
-    }
-} 
-
-/* Navbar ajustada para sidebar fixa */
+    .sidebar { left: -280px; }
+    .sidebar.active { left: 0; }
+    .flex-grow-1 { margin-left: 0; padding-top: 60px; }
+}
 .navbar.blogManager-navbar-fixed {
     left: 280px;
     width: calc(100vw - 280px);
 }
 @media (max-width: 991.98px) {
-    .navbar.blogManager-navbar-fixed {
-        left: 0;
-        width: 100vw;
+    .navbar.blogManager-navbar-fixed { left: 0; width: 100vw; }
+}
+.fab-add-post {
+    position: fixed;
+    right: 38px;
+    bottom: 38px;
+    width: 60px;
+    height: 60px;
+    z-index: 1055;
+    font-size: 2rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.fab-add-post:hover, .fab-add-post:focus {
+    background: #1e40af;
+    color: #fff;
+    box-shadow: 0 12px 36px 0 rgba(37, 99, 235, 0.28);
+    transform: scale(1.08);
+    outline: none;
+}
+@media (max-width: 768px) {
+    .fab-add-post {
+        right: 18px;
+        bottom: 18px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
     }
+} 
+
+/* Carousel Post Customization - Melhorias Avançadas */
+#postsCarousel {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+#postsCarousel .carousel-inner {
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(102, 102, 234, 0.13), 0 1.5px 6px rgba(118, 75, 162, 0.10);
+    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
+    padding: 1.5rem 0;
+    min-height: 570px;
+    transition: box-shadow 0.3s;
+}
+#postsCarousel .carousel-item {
+    transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s;
+}
+#postsCarousel .carousel-post-card {
+    width: 350px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    max-height: 550px !important;
+    margin: 0 32px !important;
+    background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%) !important;
+    border-radius: 1.3rem !important;
+    box-shadow: 0 8px 32px rgba(102, 102, 234, 0.18) !important;
+    border: none;
+    padding: 1.2rem 1.2rem 0.8rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+#postsCarousel .carousel-post-card:hover {
+    box-shadow: 0 16px 48px rgba(102, 102, 234, 0.22) !important;
+    transform: translateY(-8px) scale(1.04);
+}
+#postsCarousel .carousel-post-card .card-img-top {
+    border-top-left-radius: 1.3rem !important;
+    border-top-right-radius: 1.3rem !important;
+    box-shadow: 0 2px 12px rgba(102, 102, 234, 0.10);
+    height: 200px !important;
+    object-fit: cover;
+    margin-bottom: 0.7rem;
+}
+#postsCarousel .carousel-post-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #3730a3;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+    text-shadow: 0 2px 8px rgba(102, 102, 234, 0.08);
+}
+#postsCarousel .carousel-post-card .card-text {
+    color: #6366f1;
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    min-height: 40px;
+}
+#postsCarousel .carousel-post-card .btn-group, #postsCarousel .carousel-post-card .d-flex.justify-content-center {
+    margin-top: auto;
+}
+#postsCarousel .carousel-post-card .btn {
+    border-radius: 0.8rem !important;
+    width: 2.6rem !important;
+    height: 2.6rem !important;
+    font-size: 1.2rem !important;
+    box-shadow: 0 2px 8px rgba(102, 102, 234, 0.08);
+    border-width: 2px;
+    margin: 0 0.15rem;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#postsCarousel .carousel-post-card .btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 16px rgba(102, 102, 234, 0.13);
+}
+#postsCarousel .carousel-control-prev, #postsCarousel .carousel-control-next {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(102, 102, 234, 0.18);
+    opacity: 0.97;
+    transition: background 0.2s, box-shadow 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+#postsCarousel .carousel-control-prev:hover, #postsCarousel .carousel-control-next:hover {
+    background: linear-gradient(135deg, #3730a3 0%, #6366f1 100%);
+    opacity: 1;
+    box-shadow: 0 8px 32px rgba(102, 102, 234, 0.22);
+}
+#postsCarousel .carousel-control-prev-icon, #postsCarousel .carousel-control-next-icon {
+    filter: invert(1) drop-shadow(0 2px 4px rgba(67,56,202,0.13));
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+/* Mostrar até 3 cards visíveis no carousel em telas grandes */
+#postsCarousel .carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 570px;
+    overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+#postsCarousel .carousel-post-card {
+    margin: 0 !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    max-height: 550px !important;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+#postsCarousel .carousel-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: stretch;
+    min-width: 0;
+    transition: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+#postsCarousel .carousel-inner .carousel-item > .d-flex {
+    justify-content: center !important;
+    width: 100%;
+    margin: 0 auto;
+    gap: 18px;
+}
+#postsCarousel.hide-arrows .carousel-inner {
+    justify-content: center !important;
+}
+#postsCarousel.hide-arrows .carousel-item {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    width: auto !important;
+}
+#postsCarousel.hide-arrows .carousel-post-card {
+    margin: 0 18px !important;
+}
+@media (min-width: 1200px) {
+    #postsCarousel .carousel-inner {
+        max-width: 1140px;
+    }
+    #postsCarousel .carousel-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #postsCarousel .carousel-inner .carousel-item > .d-flex {
+        gap: 18px;
+    }
+}
+@media (max-width: 991.98px) {
+    #postsCarousel .carousel-inner {
+        max-width: 760px;
+    }
+    #postsCarousel .carousel-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #postsCarousel .carousel-inner .carousel-item > .d-flex {
+        gap: 12px;
+    }
+}
+@media (max-width: 600px) {
+    #postsCarousel .carousel-inner {
+        max-width: 98vw;
+    }
+    #postsCarousel .carousel-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #postsCarousel .carousel-inner .carousel-item > .d-flex {
+        gap: 0;
+    }
+} 
+
+/* Carousel: esconder setas se <= 3 cards */
+#postsCarousel.hide-arrows .carousel-control-prev,
+#postsCarousel.hide-arrows .carousel-control-next {
+    display: none !important;
+} 
+
+/* =======================
+   Transição de Conteúdo Principal
+   Aplica em: painel admin (container .page-transition.fade-in)
+   ======================= */
+.page-transition.fade-in {
+  animation: fadeInBlogManager 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeInBlogManager {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 } 

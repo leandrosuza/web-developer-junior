@@ -154,7 +154,7 @@
     <!-- Categories Section -->
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Explore por Categorias</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Explore by Categories</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 <a href="#" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col items-center">
@@ -168,21 +168,21 @@
                     <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
                         <i class="fas fa-code text-purple-500 text-xl"></i>
                     </div>
-                    <span class="font-medium text-gray-700">Programação</span>
+                    <span class="font-medium text-gray-700">Programming</span>
                 </a>
                 
                 <a href="#" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col items-center">
                     <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
                         <i class="fas fa-brain text-green-500 text-xl"></i>
                     </div>
-                    <span class="font-medium text-gray-700">Inteligência Artificial</span>
+                    <span class="font-medium text-gray-700">Artificial Intelligence</span>
                 </a>
                 
                 <a href="#" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col items-center">
                     <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-3">
                         <i class="fas fa-shield-alt text-red-500 text-xl"></i>
                     </div>
-                    <span class="font-medium text-gray-700">Segurança</span>
+                    <span class="font-medium text-gray-700">Security</span>
                 </a>
                 
                 <a href="#" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col items-center">
@@ -348,11 +348,11 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-white font-medium text-lg mb-4">Categorias</h3>
+                    <h3 class="text-white font-medium text-lg mb-4">Categories</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition">Programação</a></li>
-                        <li><a href="#" class="hover:text-white transition">Inteligência Artificial</a></li>
-                        <li><a href="#" class="hover:text-white transition">Segurança Digital</a></li>
+                        <li><a href="#" class="hover:text-white transition">Programming</a></li>
+                        <li><a href="#" class="hover:text-white transition">Artificial Intelligence</a></li>
+                        <li><a href="#" class="hover:text-white transition">Security</a></li>
                         <li><a href="#" class="hover:text-white transition">Hardware</a></li>
                         <li><a href="#" class="hover:text-white transition">Cloud Computing</a></li>
                     </ul>

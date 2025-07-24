@@ -10,9 +10,9 @@ class User extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [
-        'nome', 'email', 'senha',
+        'name', 'email', 'password',
     ];
     protected $hidden = [
-        'senha',
+        'password',
     ];
 } 

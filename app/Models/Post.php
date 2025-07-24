@@ -10,7 +10,7 @@ class Post extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [
-        'nome', 'foto', 'descricao', 'user_id',
+        'title', 'image', 'description', 'user_id',
     ];
 
     public function user()
