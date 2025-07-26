@@ -328,14 +328,29 @@ Database files and diagrams are organized in `/docs/db`:
 
 ## 🖼️ Preview
 
-### Admin Panel
+### 📊 Admin Panel
 
-![Dashboard](docs/DashboardManager.png)
+#### Dashboard Manager
+![Dashboard Manager](docs/DashboardManager.png)
+
+#### Posts Manager
 ![Posts Manager](docs/PostsManager.png)
+
+#### Settings Manager
 ![Settings Manager](docs/SettingsManager.png)
-![Login](docs/AuthPage.png)
 
-### Public Blog
+#### Authentication Page
+![Authentication Page](docs/AuthPage.png)
 
-![Home Page](docs/BlogHome.png)
-![Post Details](docs/BlogDetailsPosts.png)
+### 🌐 Public Blog
+
+#### Home Page
+![Blog Home Page](docs/BlogHome.png)
+
+#### Post Details Page
+![Blog Post Details](docs/BlogDetailsPosts.png)
+
+### 🗄️ Database Schema
+
+#### Database Diagram
+![Database Diagram](docs/db/diagrama_png.png)
