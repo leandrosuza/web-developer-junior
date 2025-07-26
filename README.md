@@ -1,4 +1,15 @@
-# Web Developer Junior
+# 🚀 TechBlog - Modern Blog Management System
+
+**A complete, professional blog management system built with CodeIgniter 4 and modern web technologies.**
+
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.2%2B-blue" alt="PHP Version"/>
+  <img src="https://img.shields.io/badge/CodeIgniter-4.6.2-red" alt="CodeIgniter"/>
+  <img src="https://img.shields.io/badge/Eloquent-ORM-orange" alt="Eloquent ORM"/>
+  <img src="https://img.shields.io/badge/Bootstrap-5.3-purple" alt="Bootstrap"/>
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Status"/>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/PHP-8.1%2B-blue" alt="PHP Version"/>
@@ -23,40 +34,81 @@
 ---
 
 ## 📝 About the Project
-Monolithic system for managing and publishing blog posts, featuring a complete admin panel and a modern public interface. Developed for a technical assessment, focusing on best practices, responsiveness, and the use of the required technologies.
+
+**TechBlog** is a modern, production-ready blog management system that evolved from a technical assessment into a professional-grade application. Built with CodeIgniter 4 and Eloquent ORM, it features a complete admin panel, modern public interface, and follows senior-level development practices.
+
+### 🎯 **Key Features:**
+- **Complete CRUD Operations** for blog posts with image upload
+- **Modern Admin Panel** with responsive design and real-time interactions
+- **Public Blog Interface** with search, filtering, and dark mode
+- **User Authentication System** for both admin and regular users
+- **Professional Code Structure** with proper namespacing and organization
+- **Production-Ready** with security measures and error handling
+
+### 🔄 **Recent Major Updates:**
+- **Complete Project Restructuring** - Professional namespace organization
+- **Enhanced Models** - Added relationships, scopes, accessors, and helper methods
+- **Improved Admin Interface** - Modal-based CRUD operations with AJAX
+- **Portuguese Localization** - All user-facing content in Brazilian Portuguese
+- **Code Quality Improvements** - English comments, removed debug code, updated dependencies
 
 ---
 
 ## 🛠️ Technologies Used
-- **CodeIgniter 4** (PHP Framework)
-- **Eloquent** (ORM)
-- **Bootstrap 5** (UI/Template)
-- **jQuery** (Interactions)
-- **MySQL** (Database)
-- **Git** (Version Control)
+
+### **Backend:**
+- **PHP 8.2+** - Modern PHP with type hints and features
+- **CodeIgniter 4.6.2** - Latest stable version with enhanced features
+- **Eloquent ORM** - Laravel's Eloquent for CodeIgniter 4
+- **MySQL/MariaDB** - Reliable database system
+
+### **Frontend:**
+- **Bootstrap 5.3** - Modern CSS framework with responsive design
+- **jQuery 3.6** - DOM manipulation and AJAX requests
+- **Font Awesome 6.4** - Professional icon library
+- **Owl Carousel 2.3.4** - Smooth carousel functionality
+
+### **Development Tools:**
+- **Composer** - PHP dependency management
+- **Git** - Version control
+- **PSR-4** - Autoloading standard
 
 ---
 
 ## 🚀 Features
 
-### 👨‍💻 Admin Panel
-- Admin login
-- CRUD for posts (title, image, HTML description)
-- Management of categories, comments, users, and settings
-- Modern, responsive interface with animations
-- Custom login screen
-- **Security:**
+### 👨‍💻 **Admin Panel**
+- **Secure Authentication** - Admin login with session management
+- **Complete CRUD Operations** - Create, read, update, delete posts with image upload
+- **Modern Interface** - Responsive dashboard with Bootstrap 5 and animations
+- **Real-time Interactions** - AJAX-powered modals for seamless operations
+- **Post Management** - Title, image, HTML description with preview
+- **Security Features:**
   - Authentication and session validation on all admin routes
-  - Protection against unauthorized access (route tampering)
+  - Protection against unauthorized access
   - Invalid session destruction
-  - Secure redirection to login on unauthorized attempts
+  - Secure redirection to login
 
-### 🌐 Public Blog
-- Post listing with search
-- Post details page
-- Styled footer and navbar
-- **Unavailable Features:**
-  - Uses `unavailable.js` to display overlays and block features/buttons that are not yet available, providing visual feedback and preventing unintended interactions.
+### 🌐 **Public Blog**
+- **Post Listing** - Responsive grid with search and filtering
+- **Post Details** - Full article view with sidebar highlights
+- **Dark Mode** - Toggle between light and dark themes
+- **Modern Design** - Clean, professional interface
+- **Mobile Responsive** - Optimized for all devices
+- **Search & Filter** - Find posts by title, content, or date
+
+### 🔐 **User Authentication**
+- **Dual System** - Separate admin and user authentication
+- **Registration** - User signup with validation
+- **Login/Logout** - Secure session management
+- **Remember Me** - Persistent login functionality
+
+### 🎨 **UI/UX Features**
+- **Responsive Design** - Works on desktop, tablet, and mobile
+- **Dark/Light Mode** - User preference toggle
+- **Smooth Animations** - CSS transitions and micro-interactions
+- **Loading States** - Visual feedback for user actions
+- **Error Handling** - User-friendly error messages
 
 ---
 
@@ -94,69 +146,173 @@ database.default.DBDriver = MySQLi
 ---
 
 ## 🗂️ Project Structure
-- `README.md`: main documentation (project root)
-- `/docs`: preview images, diagrams, and extra documentation
-- `/app` and `/public`: main source code
-- `/docs/db-diagram.png`: database diagram
 
-[View database diagram](docs/db-diagram.png) <!-- Remove or adjust if not available -->
+```
+web-developer-junior/
+├── 📁 app/
+│   ├── 📁 Controllers/
+│   │   ├── 📁 Admin/           # Admin controllers (Auth, Post)
+│   │   └── 📁 Blog/            # Public blog controllers
+│   ├── 📁 Models/              # Eloquent models (User, Post)
+│   ├── 📁 Views/               # Blade-like templates
+│   │   ├── 📁 admin/           # Admin panel views
+│   │   ├── 📁 auth/            # Authentication views
+│   │   ├── 📁 blog/            # Public blog views
+│   │   └── 📁 errors/          # Error pages
+│   └── 📁 Config/              # Application configuration
+├── 📁 public/                  # Web root
+│   ├── 📁 assets/
+│   │   ├── 📁 css/             # Stylesheets
+│   │   ├── 📁 js/              # JavaScript files
+│   │   └── 📁 uploads/         # User uploaded files
+├── 📁 docs/                    # Documentation & assets
+│   └── 📁 db/                  # Database files
+├── 📄 API.md                   # API documentation
+├── 📄 composer.json            # PHP dependencies
+└── 📄 README.md                # This file
+```
 
-## 🗄️ Banco de Dados e Diagramas
+### **Key Files:**
+- **`API.md`** - Complete API documentation with routes and models
+- **`docs/db/blog.sql`** - Database schema and sample data
+- **`composer.json`** - Project metadata and dependencies
 
-Os arquivos do banco de dados e o diagrama estão organizados em `/docs/db`:
+## 🗄️ Database & Diagrams
 
-- [`blog.sql`](docs/db/blog.sql): Script SQL completo para importar o banco no MySQL.
-- [`diagrama_workbench.sql`](docs/db/diagrama_workbench.sql): Script do diagrama para o Workbench.
-- [`diagrama_png.png`](docs/db/diagrama_png.png): Imagem do diagrama do banco de dados.
+Database files and diagrams are organized in `/docs/db`:
 
-### Como importar o banco de dados
-1. Abra o MySQL ou phpMyAdmin.
-2. Importe o arquivo `docs/db/blog.sql` para criar as tabelas e dados iniciais.
+- [`blog.sql`](docs/db/blog.sql): Complete SQL script to import the database into MySQL.
+- [`diagrama_workbench.sql`](docs/db/diagrama_workbench.sql): Workbench diagram script.
+- [`diagrama_png.png`](docs/db/diagrama_png.png): Database diagram image.
 
-### Visualizar o diagrama
-- Abra o `diagrama_workbench.sql` no MySQL Workbench para editar/visualizar o modelo.
-- Ou veja o diagrama diretamente na imagem abaixo:
+### Database Schema
 
-![Diagrama do Banco de Dados](docs/db/diagrama_png.png)
+#### **Users Table:**
+- `id` - Primary key
+- `name` - User full name
+- `email` - Unique email address
+- `password` - Hashed password
+- `role` - User role (admin/user)
+- `status` - Account status (active/inactive)
+- `session_token` - Session management
+- `remember_token` - Remember me functionality
+- `created_at` / `updated_at` - Timestamps
+
+#### **Posts Table:**
+- `id` - Primary key
+- `title` - Post title
+- `description` - HTML content
+- `image` - Image file path
+- `user_id` - Author reference
+- `created_at` / `updated_at` - Timestamps
+
+### How to Import Database
+1. Open MySQL or phpMyAdmin
+2. Import the `docs/db/blog.sql` file to create tables and initial data
+
+### View Diagram
+- Open `diagrama_workbench.sql` in MySQL Workbench to edit/view the model
+- Or see the diagram directly in the image below:
+
+![Database Diagram](docs/db/diagrama_png.png)
 
 ---
 
 ## 📄 Assessment Tasks
 
-### Task 1
-- Create a blog post manager
-- The manager must have login
-- Each post must have a title, image, and HTML description
-- The project must be monolithic (no separation between front and back)
+### ✅ **Task 1 - Blog Post Manager**
+- ✅ Create a blog post manager
+- ✅ The manager must have login
+- ✅ Each post must have a title, image, and HTML description
+- ✅ The project must be monolithic (no separation between front and back)
 
-### Task 2
-- Create the public blog
-- Post listing page with search field
-- Post details page
+### ✅ **Task 2 - Public Blog**
+- ✅ Create the public blog
+- ✅ Post listing page with search field
+- ✅ Post details page
+
+### 🚀 **Bonus Features Implemented:**
+- ✅ **User Authentication System** - Separate admin and user login
+- ✅ **Modern UI/UX** - Responsive design with dark mode
+- ✅ **Real-time CRUD** - AJAX-powered admin operations
+- ✅ **Professional Code Structure** - Namespaces, models, relationships
+- ✅ **Security Features** - Session management, route protection
+- ✅ **Database Relationships** - User-Post associations
+- ✅ **Image Upload** - File management for post images
+- ✅ **Search & Filter** - Advanced post discovery
 
 ---
 
-## Challenges and Solutions
+## 🔧 Challenges and Solutions
 
-- **Login/Admin route:**
-  - Issue: The default login route was /login, but it was requested to standardize to /admin.
-  - Solution: All routes, forms, and redirects were updated to /admin for consistency and better UX.
+### **Initial Development Challenges:**
+- **Login/Admin route:** Standardized to /admin for consistency and better UX
+- **Admin route protection:** Implemented session validation on all admin routes
+- **Unavailable features overlay:** Created unavailable.js for visual feedback
+- **404 on post details:** Fixed route and method naming conventions
+- **Assets organization:** Created /docs folder following GitHub best practices
 
-- **Admin route protection:**
-  - Issue: Possibility of unauthorized access to the admin panel.
-  - Solution: Session/token validation implemented on all admin routes, destroying invalid sessions and showing an access denied page.
+### **Recent Major Improvements:**
 
-- **Unavailable features overlay:**
-  - Issue: Users could try to access features not yet implemented.
-  - Solution: Created unavailable.js to block and visually signal unavailable features/buttons.
+#### **🔄 Project Restructuring:**
+- **Issue:** Code organization wasn't following professional standards
+- **Solution:** Implemented proper namespacing (`App\Controllers\Admin`, `App\Controllers\Blog`)
+- **Result:** Clean, maintainable code structure
 
-- **404 on post details:**
-  - Issue: Accessing /blog/details/{id} returned 404 due to route and method in Portuguese.
-  - Solution: Standardized routes and methods to English, fixing post details access.
+#### **📊 Enhanced Models:**
+- **Issue:** Basic models without relationships or helper methods
+- **Solution:** Added Eloquent relationships, scopes, accessors, and helper methods
+- **Result:** More robust data handling and cleaner code
 
-- **Assets and documentation organization:**
-  - Issue: Preview images were in a non-standard folder.
-  - Solution: Created the /docs folder to centralize images, diagrams, and extra documentation, following GitHub best practices.
+#### **🎨 Admin Interface Improvements:**
+- **Issue:** Basic CRUD operations without real-time feedback
+- **Solution:** Implemented AJAX-powered modals with instant feedback
+- **Result:** Professional admin experience
+
+#### **🌍 Localization:**
+- **Issue:** Mixed languages in user interface
+- **Solution:** Standardized all user-facing content to Brazilian Portuguese
+- **Result:** Consistent user experience
+
+#### **🔧 Code Quality:**
+- **Issue:** Debug code and inconsistent comments
+- **Solution:** Removed debug code, standardized English comments
+- **Result:** Production-ready codebase
+
+---
+
+## 🆕 Latest Updates (v2.0.0)
+
+### **Major Improvements:**
+
+#### **🏗️ Architecture & Code Quality:**
+- **Complete Project Restructuring** - Professional namespace organization
+- **Enhanced Models** - Added Eloquent relationships, scopes, accessors, and helper methods
+- **Code Standardization** - English comments, removed debug code, updated dependencies
+- **Composer Optimization** - Removed development dependencies, updated to CodeIgniter 4.6.2
+
+#### **🎨 User Interface:**
+- **Portuguese Localization** - All user-facing content in Brazilian Portuguese
+- **Modal-based CRUD** - AJAX-powered admin operations with real-time feedback
+- **Enhanced Admin Panel** - Improved post management with image preview
+- **Better Error Handling** - User-friendly error messages and notifications
+
+#### **🔧 Technical Improvements:**
+- **Database Schema** - Enhanced with proper relationships and constraints
+- **Security Enhancements** - Improved session management and route protection
+- **Performance Optimization** - Cleaner code structure and better resource management
+- **Documentation** - Complete API documentation and updated README
+
+### **Breaking Changes:**
+- **Namespace Changes** - Controllers moved to `App\Controllers\Admin` and `App\Controllers\Blog`
+- **Route Updates** - Some routes have been reorganized for better structure
+- **Database Updates** - New columns and relationships added
+
+### **Migration Guide:**
+1. **Update Composer Dependencies:** `composer install --no-dev`
+2. **Import Updated Database:** Use the latest `docs/db/blog.sql`
+3. **Clear Cache:** Remove any cached files if needed
+4. **Test Functionality:** Verify all features work as expected
 
 ---
 
