@@ -75,6 +75,10 @@ Monolithic system for managing and publishing blog posts, featuring a complete a
 - Email: `admin@gmail.com`
 - Password: `admin123`
 
+**User Access (template):**
+- Email: `user@gmail.com`
+- Password: `user123`
+
 ### Example `.env`
 ```ini
 app.baseURL = 'http://localhost:8080/'
@@ -93,25 +97,27 @@ database.default.DBDriver = MySQLi
 - `README.md`: main documentation (project root)
 - `/docs`: preview images, diagrams, and extra documentation
 - `/app` and `/public`: main source code
-- `/docs/db-diagram.png`: database diagram (add here if available)
+- `/docs/db-diagram.png`: database diagram
 
 [View database diagram](docs/db-diagram.png) <!-- Remove or adjust if not available -->
 
-## 🗄️ Database and Diagrams
+## 🗄️ Banco de Dados e Diagramas
 
-Database and diagram files are organized in `/docs/db`:
+Os arquivos do banco de dados e o diagrama estão organizados em `/docs/db`:
 
-- [`blog.sql`](docs/db/blog.sql): Full SQL script for database import in MySQL.
-- [`diagrama_workbench.sql`](docs/db/diagrama_workbench.sql): Workbench diagram script.
-- [`diagrama_png.png`](docs/db/diagrama_png.png): Database diagram image.
+- [`blog.sql`](docs/db/blog.sql): Script SQL completo para importar o banco no MySQL.
+- [`diagrama_workbench.sql`](docs/db/diagrama_workbench.sql): Script do diagrama para o Workbench.
+- [`diagrama_png.png`](docs/db/diagrama_png.png): Imagem do diagrama do banco de dados.
 
-### How to import the database
-1. Open MySQL or phpMyAdmin.
-2. Import the `docs/db/blog.sql` file to create tables and initial data.
+### Como importar o banco de dados
+1. Abra o MySQL ou phpMyAdmin.
+2. Importe o arquivo `docs/db/blog.sql` para criar as tabelas e dados iniciais.
 
-### View the diagram
-- Open `diagrama_workbench.sql` in MySQL Workbench to edit/view the model.
-- Or view the diagram directly in the image [`diagrama_png.png`](docs/db/diagrama_png.png).
+### Visualizar o diagrama
+- Abra o `diagrama_workbench.sql` no MySQL Workbench para editar/visualizar o modelo.
+- Ou veja o diagrama diretamente na imagem abaixo:
+
+![Diagrama do Banco de Dados](docs/db/diagrama_png.png)
 
 ---
 

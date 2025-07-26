@@ -1,11 +1,12 @@
-// login.js
-// Gerencia interações da tela de login (formulário, lembrar-me, validação, etc.)
-// Contextos: página de login
+// ========================================
+// LOGIN - MAIN SCRIPT
+// ========================================
 
 // =======================
-// Mostrar/Ocultar Senha
-// Aplica em: página de login (campo senha)
+// 1. PASSWORD TOGGLE
+// Applies to: login page password field visibility
 // =======================
+
 $(function() {
     $('#togglePassword').on('click', function() {
         const $input = $('#password');
@@ -14,10 +15,11 @@ $(function() {
         $(this).find('i').toggleClass('fa-eye fa-eye-slash');
     });
 
-// =======================
-// Validação e Shake
-// Aplica em: página de login (formulário)
-// =======================
+    // =======================
+    // 2. FORM VALIDATION
+    // Applies to: login form validation and shake effect
+    // =======================
+    
     $('#loginForm').on('submit', function(e) {
         if (!this.checkValidity()) {
             e.preventDefault();
@@ -26,20 +28,22 @@ $(function() {
             setTimeout(() => { $(this).removeClass('shake'); }, 500);
         }
         $(this).addClass('was-validated');
-        // Lógica lembrar-me
+        
+        // Remember me functionality
         if ($('#remember-me').is(':checked')) {
             localStorage.setItem('login_email', $('#email').val());
             localStorage.setItem('login_remember', '1');
         } else {
             localStorage.removeItem('login_email');
-            localStorage.removeItem('login_remember');
+            localStorage.removeItem('login_remember', '1');
         }
     });
 
-// =======================
-// Preencher campos se lembrar-me
-// Aplica em: página de login (formulário)
-// =======================
+    // =======================
+    // 3. REMEMBER ME DATA
+    // Applies to: loading remembered email data
+    // =======================
+    
     if (localStorage.getItem('login_remember') === '1') {
         $('#email').val(localStorage.getItem('login_email') || '');
         $('#remember-me').prop('checked', true);
@@ -48,10 +52,11 @@ $(function() {
         $('#remember-me').prop('checked', false);
     }
 
-// =======================
-// Limpar ao desmarcar lembrar-me
-// Aplica em: página de login (formulário)
-// =======================
+    // =======================
+    // 4. REMEMBER ME TOGGLE
+    // Applies to: clearing data when unchecked
+    // =======================
+    
     $('#remember-me').on('change', function() {
         if (!$(this).is(':checked')) {
             localStorage.removeItem('login_email');
@@ -60,9 +65,10 @@ $(function() {
         }
     });
 
-// =======================
-// Nunca preencher senha automaticamente
-// Aplica em: página de login (campo senha)
-// =======================
+    // =======================
+    // 5. PASSWORD SECURITY
+    // Applies to: never auto-fill password field
+    // =======================
+    
     $('#password').val('');
 }); 

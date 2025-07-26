@@ -1,0 +1,797 @@
+/* ========================================
+   AUTH USERS - MAIN STYLES
+   ======================================== */
+
+/* =======================
+   1. BACKGROUND AND LAYOUT
+   Applies to: authentication page background and main container
+   ======================= */
+
+/* 1.1 Page Background */
+.auth-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.auth-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 1.2 Main Container */
+.auth-container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* =======================
+   2. AUTHENTICATION CARD
+   Applies to: main authentication card component
+   ======================= */
+
+/* 2.1 Card Container */
+.auth-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 420px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.auth-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 12px 24px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* =======================
+   3. CARD HEADER
+   Applies to: header section of authentication card
+   ======================= */
+
+/* 3.1 Header Container */
+.auth-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    padding: 2.2rem 3.2rem 1.2rem 3.2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 3.2 Header Overlay */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.1) 100%);
+    opacity: 0.3;
+}
+
+/* 3.3 Header Content */
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* 3.4 Logo */
+.auth-logo {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.auth-logo i {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+/* 3.5 Titles */
+.auth-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.auth-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+/* =======================
+   4. CARD BODY
+   Applies to: main content area of authentication card
+   ======================= */
+
+/* 4.1 Body Container */
+.auth-card-body {
+    padding: 2rem 3.2rem 2rem 3.2rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* =======================
+   5. MESSAGES AND ALERTS
+   Applies to: success, error, and info messages
+   ======================= */
+
+/* 5.1 Messages Container */
+#authMessages {
+    margin-bottom: 1.5rem;
+}
+
+/* 5.2 Message Base Styles */
+.auth-message {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* 5.3 Message Animations */
+.auth-message.message-new {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: messageSlideIn 0.4s ease-out forwards;
+}
+
+.auth-message.message-fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: messageFadeOut 0.3s ease-in forwards;
+}
+
+.auth-message.message-pulse {
+    animation: messagePulse 0.3s ease-in-out;
+}
+
+/* 5.4 Message Types */
+.auth-message.success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.auth-message.warning {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+/* =======================
+   6. FORMS AND INPUTS
+   Applies to: login and registration forms
+   ======================= */
+
+/* 6.1 Form Container */
+.auth-form {
+    display: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-form.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 6.2 Form Groups */
+.form-group {
+    margin-bottom: 1.1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 6.3 Input Fields */
+.auth-form input.form-control {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 1.08rem;
+    padding: 1rem 1.2rem;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-label i {
+    color: #667eea;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: #ffffff;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #9ca3af;
+}
+
+/* =======================
+   7. PASSWORD INPUTS
+   Applies to: password fields with toggle visibility
+   ======================= */
+
+/* 7.1 Password Input Group */
+.password-input-group {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-group .form-control {
+    padding-right: 4.5rem !important;
+    width: 100%;
+    min-width: 320px;
+    font-size: 0.95rem;
+}
+
+/* 7.2 Password Toggle Button */
+.password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    z-index: 2;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.password-toggle:hover {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* =======================
+   8. FORM OPTIONS
+   Applies to: checkboxes, terms, forgot password
+   ======================= */
+
+/* 8.1 Options Container */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* 8.2 Checkbox Styles */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-check-input:checked {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 8.3 Links */
+.forgot-password {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+    color: #5a67d8;
+    text-decoration: underline;
+}
+
+.terms-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* =======================
+   9. BUTTONS
+   Applies to: submit buttons and action buttons
+   ======================= */
+
+/* 9.1 Button Base */
+.auth-btn {
+    width: 100%;
+    padding: 0.85rem 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.auth-btn:hover::before {
+    left: 100%;
+}
+
+/* 9.2 Primary Button */
+.auth-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.auth-btn.primary:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b21a8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.auth-btn.primary:active {
+    transform: translateY(0);
+}
+
+/* =======================
+   10. SEPARATORS
+   Applies to: visual separators between sections
+   ======================= */
+
+.auth-separator {
+    text-align: center;
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.auth-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+.auth-separator span {
+    background: #ffffff;
+    padding: 0 1rem;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* =======================
+   11. TOGGLE BUTTONS
+   Applies to: login/register form switching buttons
+   ======================= */
+
+/* 11.1 Toggle Container */
+.auth-toggle-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* 11.2 Toggle Button */
+.auth-toggle-btn {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    background: #ffffff;
+    color: #6b7280;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.auth-toggle-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.auth-toggle-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* =======================
+   12. FOOTER
+   Applies to: footer section with back to blog link
+   ======================= */
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.back-to-blog {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.back-to-blog:hover {
+    color: #5a67d8;
+    transform: translateX(-2px);
+}
+
+/* =======================
+   13. ANIMATIONS
+   Applies to: keyframes and animation classes
+   ======================= */
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes messagePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes textChange {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonToggled {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 13.1 Animation Classes */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.text-change {
+    animation: textChange 0.3s ease-in-out;
+}
+
+.toggled {
+    animation: buttonToggled 0.2s ease-in-out;
+}
+
+/* =======================
+   14. RESPONSIVENESS
+   Applies to: mobile and tablet adaptations
+   ======================= */
+
+/* 14.1 Tablets and Medium Screens */
+@media (max-width: 800px) {
+    .auth-container, .auth-card {
+        max-width: 98vw;
+    }
+    .auth-card-header, .auth-card-body {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .auth-card-body {
+        max-width: 100%;
+    }
+}
+
+/* 14.2 Mobile - Small Screens */
+@media (max-width: 640px) {
+    .auth-card-header, .auth-card-body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .auth-card-body {
+        max-width: 100%;
+    }
+    .register-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem 0;
+    }
+}
+
+/* 14.3 Mobile - Extra Small Screens */
+@media (max-width: 480px) {
+    .auth-card-header, .auth-card-body {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .auth-card {
+        min-height: 340px;
+    }
+    .auth-form input.form-control {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.7rem;
+    }
+}
+
+/* =======================
+   15. LOADING STATES
+   Applies to: button loading animations
+   ======================= */
+
+.auth-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.auth-btn.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =======================
+   16. FORM VALIDATION
+   Applies to: input validation states and feedback
+   ======================= */
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-control.is-valid {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc3545;
+    animation: slideInUp 0.3s ease;
+}
+
+.valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #198754;
+    animation: slideInUp 0.3s ease;
+}
+
+/* =======================
+   17. REGISTER FORM GRID
+   Applies to: two-column layout for registration form
+   ======================= */
+
+.register-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .register-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem 0;
+    }
+} 

@@ -23,7 +23,7 @@ $capsule = new Capsule;
 $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'blog', // ajuste se necessário
+    'database'  => 'blog', // adjust if necessary
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8mb4',

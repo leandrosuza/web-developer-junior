@@ -21,7 +21,7 @@
 <div class="card shadow posts-table-card mb-4">
     <div class="card-body">
         <div class="row g-3 justify-content-center align-items-center">
-            <div class="col-12 col-md-4 d-flex justify-content-center">
+            <div class="col-12 col-md-3 d-flex justify-content-center">
                 <div class="input-group">
                     <span class="input-group-text bg-light border-end-0">
                         <i class="fas fa-search text-muted"></i>
@@ -29,17 +29,23 @@
                     <input type="text" class="form-control border-start-0" placeholder="Buscar posts..." id="searchPosts">
                 </div>
             </div>
-            <div class="col-12 col-md-3 d-flex justify-content-center">
+            <div class="col-12 col-md-2 d-flex justify-content-center">
                 <div class="input-group">
                     <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-muted"></i></span>
                     <input type="date" class="form-control" id="filterDateStart" placeholder="Data inicial">
                 </div>
             </div>
-            <div class="col-12 col-md-3 d-flex justify-content-center">
+            <div class="col-12 col-md-2 d-flex justify-content-center">
                 <div class="input-group">
                     <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-muted"></i></span>
                     <input type="date" class="form-control" id="filterDateEnd" placeholder="Data final">
                 </div>
+            </div>
+            <div class="col-12 col-md-3 d-flex justify-content-center">
+                <button class="btn btn-primary d-flex align-items-center gap-2" onclick="createNewPost()">
+                    <i class="fas fa-plus"></i>
+                    Novo Post
+                </button>
             </div>
         </div>
     </div>
@@ -47,12 +53,12 @@
 
 <!-- Carrossel de Posts -->
 <?php
-// Garante que $posts está definido e é array/Collection
+// Ensure $posts is defined and is array/Collection
 if (!isset($posts) || !is_array($posts) && !($posts instanceof \Countable)) {
     $posts = [];
 }
 $postsArray = is_array($posts) ? $posts : (method_exists($posts, 'toArray') ? $posts->toArray() : []);
-// Ordena por data de criação (mais recente primeiro)
+// Sort by creation date (most recent first)
 if (!empty($postsArray)) {
     usort($postsArray, function($a, $b) {
         $dateA = is_array($a) ? $a['created_at'] : $a->created_at;
@@ -64,7 +70,7 @@ if (!empty($postsArray)) {
 <section class="ftco-section">
     <div class="container">
         <div class="row">
-            <!-- Título removido conforme solicitado -->
+            <!-- Title removed as requested -->
             <div class="col-md-12">
                 <div class="featured-carousel owl-carousel">
                     <?php foreach ($postsArray as $post): ?>
@@ -158,5 +164,5 @@ if (!empty($postsArray)) {
     </div>
 </div>
 
-<!-- Botão flutuante para novo post -->
+                <!-- Floating button for new post -->
 <button id="addPostFab" class="fab-add-post"><i class="fas fa-plus"></i></button> 

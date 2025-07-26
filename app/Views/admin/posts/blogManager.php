@@ -1,10 +1,10 @@
 <?php
-// Proteção extra: impedir acesso direto sem autenticação
+// Extra protection: prevent direct access without authentication
 if (!session('user_id') || !session('session_token')) {
     echo view('errors/html/access_denied');
     exit;
 }
-// Opcional: validar token no banco (reforço)
+// Optional: validate token in database (reinforcement)
 $user = \App\Models\User::find(session('user_id'));
 if (!$user || $user->session_token !== session('session_token')) {
     session()->destroy();
@@ -18,6 +18,8 @@ if (!$user || $user->session_token !== session('session_token')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Manager | Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/blogManager.css">
@@ -107,6 +109,61 @@ if (!$user || $user->session_token !== session('session_token')) {
             }
             ?>
         </main>
+    </div>
+</div>
+
+<!-- Post Edit/Create Modal -->
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="postModalLabel">Criar Novo Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <form id="postForm">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="postTitle" class="form-label">Título do Post</label>
+                        <input type="text" class="form-control" id="postTitle" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postContent" class="form-label">Conteúdo</label>
+                        <textarea class="form-control" id="postContent" name="description" rows="8" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postImage" class="form-label">Imagem (opcional)</label>
+                        <input type="file" class="form-control" id="postImage" name="image" accept="image/*">
+                        <div id="currentImage" class="mt-2" style="display: none;">
+                            <img id="currentImagePreview" src="" alt="Imagem atual" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                            <p class="text-muted small mt-1">Imagem atual do post</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Excluir</button>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

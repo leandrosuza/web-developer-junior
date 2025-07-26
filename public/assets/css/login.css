@@ -1,9 +1,23 @@
-/* Fundo da página de login */
+/* ========================================
+   LOGIN - MAIN STYLES
+   ======================================== */
+
+/* =======================
+   1. BACKGROUND AND LAYOUT
+   Applies to: login page background and main container
+   ======================= */
+
+/* 1.1 Page Background */
 body.gradient-bg {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
 }
 
-/* Cartão de Login */
+/* =======================
+   2. LOGIN CARD
+   Applies to: main login card component
+   ======================= */
+
+/* 2.1 Card Container */
 .login-card {
     max-width: 410px;
     width: 100%;
@@ -13,35 +27,39 @@ body.gradient-bg {
     background: #fff;
 }
 
-/* Topo do Cartão */
+/* 2.2 Card Header */
 .login-card-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
     height: 170px;
 }
+
 .login-card-header .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.18);
 }
+
 .login-card-header .header-content {
     position: relative;
     z-index: 2;
     text-align: center;
     padding: 2.2rem 1rem 1.2rem 1rem;
 }
+
 .login-card-header h1 {
     color: #fff;
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
+
 .login-card-header p {
     color: #e0e7ff;
     font-size: 1rem;
 }
 
-/* Avatar do Login */
+/* 2.3 User Avatar */
 .login-user-avatar {
     position: absolute;
     left: 50%;
@@ -57,34 +75,51 @@ body.gradient-bg {
     justify-content: center;
     box-shadow: 0 4px 16px 0 rgba(76, 68, 182, 0.18);
 }
+
 .login-user-avatar i {
     color: #667eea;
     font-size: 2.2rem;
 }
 
-/* Corpo do Cartão */
+/* 2.4 Card Body */
 .login-card-body {
     padding: 2.8rem 2rem 2rem 2rem;
 }
 
-/* Formulários e Inputs */
+/* =======================
+   3. FORM ELEMENTS
+   Applies to: login form inputs and buttons
+   ======================= */
+
+/* 3.1 Form Labels */
 .login-card .form-label {
     font-weight: 500;
 }
+
+/* 3.2 Input Groups */
 .login-card .input-group-text {
     background: #f3f4f6;
     border: none;
 }
+
+/* 3.3 Form Controls */
 .login-card .form-control:focus {
     border-color: #764ba2;
     box-shadow: 0 0 0 0.2rem rgba(118, 75, 162, 0.15);
 }
+
+/* 3.4 Checkbox */
 .login-card .form-check-input:checked {
     background-color: #764ba2;
     border-color: #764ba2;
 }
 
-/* Botões */
+/* =======================
+   4. BUTTONS
+   Applies to: submit and action buttons
+   ======================= */
+
+/* 4.1 Primary Button */
 .login-card .btn-primary {
     background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
     border: none;
@@ -92,21 +127,36 @@ body.gradient-bg {
     letter-spacing: 0.5px;
     box-shadow: 0 2px 8px 0 rgba(76, 68, 182, 0.10);
 }
+
 .login-card .btn-primary:hover {
     background: linear-gradient(90deg, #5a67d8 0%, #6b21a8 100%);
 }
+
+/* =======================
+   5. LINKS AND TEXT
+   Applies to: links and text elements
+   ======================= */
+
+/* 5.1 Links */
 .login-card .small a {
     color: #764ba2;
     text-decoration: underline;
 }
+
 .login-card .small a:hover {
     color: #667eea;
 }
 
-/* Animação de erro */
+/* =======================
+   6. ANIMATIONS
+   Applies to: shake animation for errors
+   ======================= */
+
+/* 6.1 Shake Animation */
 .shake {
     animation: shake 0.5s;
 }
+
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }

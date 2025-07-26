@@ -175,12 +175,15 @@
 .navbar {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    position: sticky;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    backdrop-filter: blur(15px);
+    position: fixed;
     top: 0;
-    z-index: 1030;
-    padding: 0.75rem 1.5rem;
+    left: 280px;
+    right: 0;
+    z-index: 1051;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
 }
 .navbar-brand {
     font-weight: 700;
@@ -533,7 +536,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Animações */
+/* Animations */
 .post-item { animation: fadeInUp 0.6s ease forwards; }
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -585,7 +588,7 @@ body {
     }
 } 
 
-/* Título com gradiente e subtítulo suave para seção de posts */
+/* Title with gradient and soft subtitle for posts section */
 .posts-header-title-gradient {
     font-size: 2.1rem;
     font-weight: 800;
@@ -615,7 +618,7 @@ body {
     }
 } 
 
-/* Header moderno para seção de posts */
+/* Modern header for posts section */
 .posts-header-modern {
     background: rgba(255,255,255,0.82);
     border-radius: 1.2rem;
@@ -678,7 +681,7 @@ body {
     }
 } 
 
-/* Título e subtítulo na navbar */
+/* Title and subtitle in navbar */
 .navbar-page-title {
     display: flex;
     flex-direction: column;
@@ -828,19 +831,34 @@ body {
     to { opacity: 1; transform: translateY(0); }
 } 
 
-/* Utilitários e ajustes finais (sidebar, navbar fixa, etc) */
+/* Utilities and final adjustments (sidebar, fixed navbar, etc) */
 .flex-grow-1 {
     margin-left: 280px;
     padding-top: 72px;
 }
 @media (max-width: 991.98px) {
-    .sidebar { left: -280px; }
-    .sidebar.active { left: 0; }
-    .flex-grow-1 { margin-left: 0; padding-top: 60px; }
+    .sidebar { 
+        left: -280px; 
+        transition: left 0.3s ease;
+    }
+    .sidebar.active { 
+        left: 0; 
+    }
+    .navbar {
+        left: 0;
+        width: 100vw;
+    }
+    .flex-grow-1 { 
+        margin-left: 0; 
+        padding-top: 80px; 
+    }
 }
 .navbar.blogManager-navbar-fixed {
     left: 280px;
     width: calc(100vw - 280px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 991.98px) {
     .navbar.blogManager-navbar-fixed { left: 0; width: 100vw; }
@@ -853,23 +871,47 @@ body {
     height: 60px;
     z-index: 1055;
     font-size: 2rem;
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     color: #fff;
     border: none;
-    box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 .fab-add-post:hover, .fab-add-post:focus {
-    background: #1e40af;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
     color: #fff;
-    box-shadow: 0 12px 36px 0 rgba(37, 99, 235, 0.28);
-    transform: scale(1.08);
+    box-shadow: 0 12px 40px 0 rgba(37, 99, 235, 0.35);
+    transform: scale(1.1) translateY(-2px);
     outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
 }
+/* Pulse animation for FAB */
+@keyframes fab-pulse {
+    0% {
+        box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.25);
+    }
+    50% {
+        box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.4), 0 0 0 8px rgba(37, 99, 235, 0.1);
+    }
+    100% {
+        box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.25);
+    }
+}
+
+.fab-add-post {
+    animation: fab-pulse 2s infinite;
+}
+
+.fab-add-post:hover {
+    animation: none;
+}
+
 @media (max-width: 768px) {
     .fab-add-post {
         right: 18px;
@@ -880,7 +922,7 @@ body {
     }
 } 
 
-/* Carousel Post Customization - Melhorias Avançadas */
+/* Carousel Post Customization - Advanced Improvements */
 #postsCarousel {
     max-width: 1140px;
     margin: 0 auto;
@@ -990,7 +1032,7 @@ body {
     height: 2.3rem;
 }
 
-/* Mostrar até 3 cards visíveis no carousel em telas grandes */
+/* Show up to 3 visible cards in carousel on large screens */
 #postsCarousel .carousel-inner {
     display: flex;
     flex-wrap: nowrap;

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Requisição inválida - 400</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/assets/css/blog.css">
     <link rel="stylesheet" href="/assets/css/unavailable.css">
@@ -43,10 +44,10 @@
         <div class="footer-links">
           <h5>Links</h5>
           <ul>
-            <li><a href="/blog">Home</a></li>
+                            <li><a href="/blog">Início</a></li>
             <li><a href="#">Artigos</a></li>
             <li><a href="#">Tutoriais</a></li>
-            <li><a href="#">Reviews</a></li>
+                            <li><a href="#">Avaliações</a></li>
             <li><a href="#">Sobre</a></li>
           </ul>
         </div>
@@ -67,7 +68,7 @@
           </form>
         </div>
       </div>
-      <div class="footer-bottom">&copy; 2023 TechBlog. Todos os direitos reservados.</div>
+              <div class="footer-bottom">&copy; 2025 TechBlog. All rights reserved.</div>
     </footer>
 </body>
 </html>
