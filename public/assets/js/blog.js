@@ -81,14 +81,14 @@ $(function() {
       if ($(e.target).hasClass('btn-visualizar') || $(e.target).hasClass('btn-view')) return;
       const id = $(this).data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
     $('.post-card .btn-visualizar, .post-card .btn-view').on('click', function(e) {
       e.stopPropagation();
       const id = $(this).closest('.post-card').data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
   }
@@ -135,14 +135,14 @@ $(function() {
       if ($(e.target).hasClass('btn-visualizar')) return;
       const id = $(this).data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
     $('.post-card .btn-visualizar').off('click').on('click', function(e) {
       e.stopPropagation();
       const id = $(this).closest('.post-card').data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
   }

@@ -3,6 +3,7 @@
 namespace Config;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PDO;
 
 class Eloquent
 {
@@ -16,9 +17,14 @@ class Eloquent
             'database'  => 'blog',
             'username'  => 'root',
             'password'  => '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => '',
+            'options'   => [
+                PDO::ATTR_PERSISTENT => false,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
+            ],
         ]);
 
         // Set the event dispatcher used by Eloquent models... (optional)

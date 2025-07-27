@@ -361,7 +361,7 @@ function handleLoginSubmit(e) {
                 
                 // Redirect after success
                 setTimeout(() => {
-                    window.location.href = response.redirect || '/blog';
+                    window.location.href = response.redirect || 'blog';
                 }, 1500);
             } else {
                 showMessage(response.message, 'error');
