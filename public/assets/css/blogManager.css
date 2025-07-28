@@ -2,27 +2,230 @@
 .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
   width: 48px;
   height: 48px;
-  background: transparent !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   border-radius: 50%;
-  box-shadow: none;
+  box-shadow: 0 4px 16px rgba(102, 102, 234, 0.18);
   color: #fff !important;
   border: none;
   font-size: 2rem;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 10;
   opacity: 0.97;
   transition: color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
+
+.owl-carousel .owl-nav button.owl-prev {
+  left: -24px;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  right: -24px;
+}
+
 .owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
   color: #fbbf24 !important;
   opacity: 1;
-  box-shadow: none;
+  box-shadow: 0 8px 32px rgba(102, 102, 234, 0.22);
   transform: translateY(-50%) scale(1.18);
+}
+
+/* Garantir que os botões de navegação sejam sempre visíveis */
+.owl-carousel .owl-nav {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.owl-carousel .owl-nav button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Estilos específicos para o carrossel de posts */
+.featured-carousel {
+  position: relative;
+  padding: 0 60px;
+}
+
+.featured-carousel .owl-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.featured-carousel .owl-nav button {
+  pointer-events: auto;
+}
+
+/* Responsividade para os botões de navegação */
+@media (max-width: 768px) {
+  .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .owl-carousel .owl-nav button.owl-prev {
+    left: -20px;
+  }
+  
+  .owl-carousel .owl-nav button.owl-next {
+    right: -20px;
+  }
+  
+  .featured-carousel {
+    padding: 0 50px;
+  }
+}
+
+/* Estilos específicos para organização dos cards */
+.blog-entry {
+  transition: all 0.3s ease;
+}
+
+.blog-entry:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(102, 102, 234, 0.22) !important;
+}
+
+.blog-entry .content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.blog-entry .content-section .heading {
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.blog-entry .content-section p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.blog-entry .dates-section {
+  flex-shrink: 0;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.blog-entry .actions-section {
+  flex-shrink: 0;
+  padding-top: 0.5rem;
+}
+
+.blog-entry .actions-section .btn {
+  transition: all 0.2s ease;
+}
+
+.blog-entry .actions-section .btn:hover {
+  transform: scale(1.1);
+}
+
+/* Melhorias na responsividade dos cards */
+@media (max-width: 768px) {
+  .blog-entry {
+    height: 500px !important;
+  }
+  
+  .blog-entry .content-section .heading {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.6rem;
+  }
+  
+  .blog-entry .content-section p {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.8rem;
+  }
+  
+  .blog-entry .dates-section {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .blog-entry .actions-section .btn {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+  }
+}
+
+/* Estilos para manter o carrossel fixo durante buscas */
+.featured-carousel {
+  min-height: 570px !important;
+  position: relative !important;
+}
+
+.featured-carousel .owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.featured-carousel .owl-item {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.featured-carousel .owl-item .item {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+/* Garantir que os cards mantenham tamanho fixo */
+.featured-carousel .blog-entry {
+  width: 100% !important;
+  height: 550px !important;
+  min-height: 550px !important;
+  max-height: 550px !important;
+}
+
+/* Estilo para mensagem de "nenhum resultado" */
+.featured-carousel .no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 550px;
+  background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%);
+  border-radius: 1.3rem;
+  box-shadow: 0 8px 32px rgba(102,102,234,0.18);
+}
+
+.featured-carousel .no-results .text-center {
+  max-width: 400px;
+}
+
+.featured-carousel .no-results i {
+  color: #6366f1;
+  opacity: 0.5;
+}
+
+.featured-carousel .no-results h4 {
+  color: #3730a3;
+  margin-bottom: 0.5rem;
+}
+
+.featured-carousel .no-results p {
+  color: #6366f1;
+  opacity: 0.8;
 }
 
 /* Sidebar */
