@@ -347,6 +347,48 @@ mkdir writable/cache
 - [x] Relacionamentos Eloquent
 - [x] Documentação completa
 
+## 📸 Screenshots
+
+### 🖥️ Desktop Screenshots
+
+#### **Admin Panel**
+- **Dashboard Manager** - Main administrative dashboard with overview and statistics
+  ![Dashboard Manager](docs/DashboardManager.png)
+
+- **Posts Manager** - Complete CRUD interface for managing blog posts
+  ![Posts Manager](docs/PostsManager.png)
+
+- **Settings Manager** - System configuration and settings panel
+  ![Settings Manager](docs/SettingsManager.png)
+
+- **Authentication Page** - Secure admin login interface
+  ![Auth Page](docs/AuthPage.png)
+
+#### **Public Blog**
+- **Blog Home** - Main blog listing page with search and filtering
+  ![Blog Home](docs/BlogHome.png)
+
+- **Blog Details** - Individual post view with full content and sidebar
+  ![Blog Details](docs/BlogDetailsPosts.png)
+
+### 📱 Mobile Screenshots
+
+#### **Mobile Admin Interface**
+- **Mobile Dashboard** - Responsive admin dashboard on mobile devices
+  ![Mobile Dashboard](docs/mobileDashboard_screen.png)
+
+- **Mobile Auth Admin** - Admin login optimized for mobile
+  ![Mobile Auth Admin](docs/mobileAuthAdmin_screen.png)
+
+#### **Mobile Public Interface**
+- **Mobile Home** - Blog home page on mobile devices
+  ![Mobile Home](docs/mobileHome_screen.png)
+
+- **Mobile Auth User** - User authentication on mobile
+  ![Mobile Auth User](docs/mobileAuthUser_screen.png)
+
+---
+
 ## Contato
 
 Para dúvidas sobre a implementação, entre em contato através do repositório.
