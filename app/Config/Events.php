@@ -53,3 +53,15 @@ Events::on('pre_system', static function (): void {
         }
     }
 });
+
+/*
+ * --------------------------------------------------------------------
+ * Eloquent ORM Initialization
+ * --------------------------------------------------------------------
+ * Initialize Eloquent ORM after the autoloader is ready
+ */
+Events::on('pre_system', static function (): void {
+    if (class_exists('Config\Eloquent')) {
+        \Config\Eloquent::start();
+    }
+});

@@ -171,5 +171,50 @@ if (!$user || $user->session_token !== session('session_token')) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/blogManager.js"></script>
 <script src="/assets/js/unavailable.js"></script>
+
+<!-- Script to ensure carousel navigation buttons are always visible -->
+<script>
+$(document).ready(function() {
+    function ensureCarouselNavVisible() {
+        $('.owl-nav').show();
+        $('.owl-nav button').show();
+        $('.owl-nav button').css({
+            'display': 'flex !important',
+            'visibility': 'visible !important',
+            'opacity': '1 !important'
+        });
+    }
+    
+    ensureCarouselNavVisible();
+    
+    setTimeout(ensureCarouselNavVisible, 100);
+    setTimeout(ensureCarouselNavVisible, 500);
+    setTimeout(ensureCarouselNavVisible, 1000);
+    
+    setInterval(ensureCarouselNavVisible, 3000);
+    
+    $(window).on('resize', function() {
+        setTimeout(ensureCarouselNavVisible, 100);
+    });
+    
+    if (typeof MutationObserver !== 'undefined') {
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && mutation.target.classList.contains('featured-carousel')) {
+                    setTimeout(ensureCarouselNavVisible, 50);
+                }
+            });
+        });
+        
+        var carousel = document.querySelector('.featured-carousel');
+        if (carousel) {
+            observer.observe(carousel, {
+                childList: true,
+                subtree: true
+            });
+        }
+    }
+});
+</script>
 </body>
 </html>

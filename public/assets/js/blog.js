@@ -81,14 +81,14 @@ $(function() {
       if ($(e.target).hasClass('btn-visualizar') || $(e.target).hasClass('btn-view')) return;
       const id = $(this).data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
     $('.post-card .btn-visualizar, .post-card .btn-view').on('click', function(e) {
       e.stopPropagation();
       const id = $(this).closest('.post-card').data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
   }
@@ -135,14 +135,14 @@ $(function() {
       if ($(e.target).hasClass('btn-visualizar')) return;
       const id = $(this).data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
     $('.post-card .btn-visualizar').off('click').on('click', function(e) {
       e.stopPropagation();
       const id = $(this).closest('.post-card').data('id');
       if (id) {
-        window.location.href = `/blog/details/${id}`;
+        window.location.href = `blog/details/${id}`;
       }
     });
   }
@@ -179,12 +179,10 @@ $(function() {
             }, 300);
         }
 
-        // Fechar com botão X
         if (closeMobileHighlights) {
             closeMobileHighlights.addEventListener('click', closeHighlightsPanel);
         }
 
-        // Fechar clicando fora do painel
         mobileHighlightsPanel.addEventListener('click', function(e) {
             if (e.target === mobileHighlightsPanel) {
                 closeHighlightsPanel();
@@ -217,19 +215,16 @@ $(function() {
             }, 300);
         }
 
-        // Fechar com botão X
         if (closeMobileComments) {
             closeMobileComments.addEventListener('click', closeCommentsPanel);
         }
 
-        // Fechar clicando fora do painel
         mobileCommentsPanel.addEventListener('click', function(e) {
             if (e.target === mobileCommentsPanel) {
                 closeCommentsPanel();
             }
         });
 
-        // Fechar com ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (!mobileCommentsPanel.classList.contains('hidden')) {
@@ -477,7 +472,6 @@ $(function() {
             showTechModal(tech);
         });
         
-        // Efeito de hover com partículas
         folder.addEventListener('mouseenter', function() {
             createParticles(this);
         });
@@ -753,7 +747,6 @@ $(function() {
             }, 150);
         });
         
-        // Efeito de hover com partículas
         article.addEventListener('mouseenter', function() {
             createArticleParticles(this);
         });
@@ -1364,7 +1357,6 @@ function editComment(commentId) {
     const comment = commentsState.comments.find(c => c.id === commentId);
     if (!comment) return;
     
-    // For now, just show a prompt - you could implement inline editing
     const newContent = prompt('Editar comentário:', comment.content);
     
     if (newContent && newContent.trim() && newContent !== comment.content) {

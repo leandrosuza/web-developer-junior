@@ -1,4 +1,4 @@
-<!-- Resumo -->
+<!-- Summary -->
 <div class="row mb-3 align-items-center">
     <div class="col-12">
         <div class="posts-summary-card p-3 d-flex align-items-center gap-4 w-100">
@@ -66,39 +66,76 @@ if (!empty($postsArray)) {
         return strtotime($dateB) - strtotime($dateA);
     });
 }
+
+// Helper function to fix image paths
+function getImageUrl($imagePath) {
+    if (empty($imagePath)) {
+        return 'https://via.placeholder.com/420x180/667eea/ffffff?text=Foto';
+    }
+    
+    if (strpos($imagePath, '/') === 0) {
+        return $imagePath;
+    }
+    
+    return '/' . $imagePath;
+}
 ?>
 <section class="ftco-section">
     <div class="container">
         <div class="row">
-            <!-- Title removed as requested -->
             <div class="col-md-12">
-                <div class="featured-carousel owl-carousel">
-                    <?php foreach ($postsArray as $post): ?>
-                        <?php
-                            $image = is_array($post) ? $post['image'] : $post->image;
-                            $title = is_array($post) ? $post['title'] : $post->title;
-                            $description = is_array($post) ? $post['description'] : $post->description;
-                            $id = is_array($post) ? $post['id'] : $post->id;
-                        ?>
+                <div class="featured-carousel owl-carousel" style="position: relative;">
+                    <?php if (empty($postsArray)): ?>
                         <div class="item">
-                            <div class="blog-entry" style="border-radius: 1.3rem; overflow: hidden; box-shadow: 0 8px 32px rgba(102,102,234,0.18); background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%); height: 550px; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;">
-                                <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('<?= !empty($image) ? '/' . esc($image) : 'https://via.placeholder.com/420x180/667eea/ffffff?text=Foto' ?>'); height: 200px; background-size: cover; background-position: center; border-top-left-radius: 1.3rem; border-top-right-radius: 1.3rem;"></a>
-                                <div class="text border border-top-0 p-4 d-flex flex-column justify-content-between align-items-center" style="flex: 1 1 auto; min-height: 0;">
-                                    <h3 class="heading text-center" style="color: #3730a3; font-size: 1.18rem; font-weight: bold; text-shadow: 0 2px 8px rgba(102,102,234,0.08); letter-spacing: 0.2px; margin-bottom: 0.5rem;"> <?= esc($title) ?> </h3>
-                                    <p class="text-center" style="color: #6366f1; font-size: 1.01rem; font-weight: 500; line-height: 1.4; min-height: 36px;"> <?= esc($description) ?> </p>
-                                    <div class="mb-2 text-center small text-muted">
-                                        <span>Publicado: <?= isset($post->created_at) ? date('d/m/Y H:i', strtotime($post->created_at)) : (isset($post['created_at']) ? date('d/m/Y H:i', strtotime($post['created_at'])) : '-') ?></span><br>
-                                        <span>Atualizado: <?= isset($post->updated_at) ? date('d/m/Y H:i', strtotime($post->updated_at)) : (isset($post['updated_at']) ? date('d/m/Y H:i', strtotime($post['updated_at'])) : '-') ?></span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2 mt-auto" style="width: 100%;">
-                                        <button class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center" onclick="editPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Editar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-outline-success btn-sm d-flex align-items-center justify-content-center" onclick="viewPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Visualizar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center" onclick="deletePost(<?= $id ?>)" data-bs-toggle="tooltip" title="Excluir" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-trash-can"></i></button>
+                            <div class="text-center py-5">
+                                <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+                                <h4 class="text-muted">Nenhum post encontrado</h4>
+                                <p class="text-muted">Clique no botão + para criar seu primeiro post!</p>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <?php foreach ($postsArray as $post): ?>
+                            <?php
+                                $image = is_array($post) ? $post['image'] : $post->image;
+                                $title = is_array($post) ? $post['title'] : $post->title;
+                                $description = is_array($post) ? $post['description'] : $post->description;
+                                $id = is_array($post) ? $post['id'] : $post->id;
+                                $imageUrl = getImageUrl($image);
+                            ?>
+                            <div class="item">
+                                <div class="blog-entry" style="border-radius: 1.3rem; overflow: hidden; box-shadow: 0 8px 32px rgba(102,102,234,0.18); background: linear-gradient(135deg, #f8fafc 80%, #e0e7ff 100%); height: 550px; display: flex; flex-direction: column;">
+                                    <!-- Imagem do post -->
+                                    <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('<?= esc($imageUrl) ?>'); height: 200px; background-size: cover; background-position: center; border-top-left-radius: 1.3rem; border-top-right-radius: 1.3rem; flex-shrink: 0;"></a>
+                                    
+                                    <!-- Conteúdo do post -->
+                                    <div class="text border border-top-0 p-4" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                        <!-- Título e descrição -->
+                                        <div class="content-section">
+                                            <h3 class="heading text-center" style="color: #3730a3; font-size: 1.18rem; font-weight: bold; text-shadow: 0 2px 8px rgba(102,102,234,0.08); letter-spacing: 0.2px; margin-bottom: 0.8rem;"> <?= esc($title) ?> </h3>
+                                            <p class="text-center" style="color: #6366f1; font-size: 1.01rem; font-weight: 500; line-height: 1.4; margin-bottom: 1rem; min-height: 40px;"> <?= esc($description) ?> </p>
+                                        </div>
+                                        
+                                        <!-- Datas -->
+                                        <div class="dates-section text-center small text-muted" style="margin-bottom: 1rem;">
+                                            <div style="margin-bottom: 0.3rem;">
+                                                <span>Publicado: <?= isset($post->created_at) ? date('d/m/Y H:i', strtotime($post->created_at)) : (isset($post['created_at']) ? date('d/m/Y H:i', strtotime($post['created_at'])) : '-') ?></span>
+                                            </div>
+                                            <div>
+                                                <span>Atualizado: <?= isset($post->updated_at) ? date('d/m/Y H:i', strtotime($post->updated_at)) : (isset($post['updated_at']) ? date('d/m/Y H:i', strtotime($post['updated_at'])) : '-') ?></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botões de ação -->
+                                        <div class="actions-section d-flex justify-content-center align-items-center gap-2" style="margin-top: auto;">
+                                            <button class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center" onclick="editPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Editar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline-success btn-sm d-flex align-items-center justify-content-center" onclick="viewPost(<?= $id ?>)" data-bs-toggle="tooltip" title="Visualizar" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center" onclick="deletePost(<?= $id ?>)" data-bs-toggle="tooltip" title="Excluir" style="border-radius: 0.8rem; width: 2.6rem; height: 2.6rem;"><i class="fas fa-trash-can"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
