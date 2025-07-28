@@ -112,36 +112,70 @@
 
 ---
 
-## 🏁 How to Run the Project
+## 🚀 Quick Installation Guide
 
-1. Clone the repository
-2. Install dependencies with `composer install`
-3. Configure the `.env` file with your MySQL database credentials (see example below)
-4. Run migrations/seeds if needed
-5. Start the built-in CodeIgniter server: `php spark serve`
-6. Access:
-   - Public blog: [http://localhost:8080/blog](http://localhost:8080/blog)
-   - Admin: [http://localhost:8080/admin](http://localhost:8080/admin)
+### 📋 Prerequisites
+- **PHP 8.2+** installed
+- **MySQL/MariaDB** running
+- **Composer** installed
+- **Git** installed
 
-**Admin Access (template):**
+### ⚡ Quick Start 
+
+1. **Clone the repository**
+   ```bash
+   git clone [repository-url]
+   cd web-developer-junior
+   ```
+
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Configure database**
+   - Rename `env` file to `.env`e remova os # caso ele tenha exemplo: #app.baseURL -> app.useURL
+   - Update database settings in `.env`:
+   ```ini
+   app.baseURL = 'http://localhost:8080/'
+   database.default.hostname = localhost
+   database.default.database = blog
+   database.default.username = root
+   database.default.password = your_password
+   database.default.DBDriver = MySQLi
+   ```
+
+4. **Import database**
+   - Open MySQL/phpMyAdmin
+   - Import `docs/db/blog.sql` to create tables and sample data
+
+5. **Start the server**
+   ```bash
+   php spark serve
+   ```
+
+6. **Access the application**
+   - 🌐 **Public Blog:** http://localhost:8080/blog
+   - 👨‍💻 **Admin Panel:** http://localhost:8080/admin
+
+### 🔑 Default Login Credentials
+
+**Admin Access:**
 - Email: `admin@gmail.com`
 - Password: `admin123`
 
-**User Access (template):**
+**User Access:**
 - Email: `user@gmail.com`
 - Password: `user123`
 
-### Example `.env`
-```ini
-app.baseURL = 'http://localhost:8080/'
-database.default.hostname = localhost
-database.default.database = blog
-database.default.username = root
-database.default.password =
-database.default.DBDriver = MySQLi
-```
+### 📁 Directory Structure (Auto-created)
+The following directories are automatically included when you clone the repository:
+- ✅ `writable/cache` - System cache
+- ✅ `writable/logs` - Application logs  
+- ✅ `writable/session` - Session data
+- ✅ `public/uploads/posts` - Post images
 
-> **Tip:** Rename the `env` file to `.env` and adjust it for your environment.
+> **Note:** No need to create these directories manually - they come with the project!
 
 ---
 
