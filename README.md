@@ -123,7 +123,7 @@ Sistema de gerenciamento de blog desenvolvido com CodeIgniter 4, Eloquent ORM e 
    ```
 
 3. **Configure database**
-   - Rename `env` file to `.env`e remova os # caso ele tenha exemplo: #app.baseURL -> app.useURL
+   - Rename the env file to .env and remove # from lines if present (e.g., #app.baseURL → app.baseURL)
    - Update database settings in `.env`:
    ```ini
    app.baseURL = 'http://localhost:8080/'
